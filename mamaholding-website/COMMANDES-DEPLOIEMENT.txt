@@ -1,0 +1,81 @@
+==========================================================
+🚀 COMMANDES POUR DÉPLOYER SUR O2SWITCH
+==========================================================
+
+ÉTAPE 1 : Créer le build
+--------------------------
+npm run build
+
+⏳ Attendez que le build se termine (1-2 minutes)
+✅ Un dossier "out" sera créé avec tous les fichiers
+
+
+ÉTAPE 2 : Localiser le dossier "out"
+-------------------------------------
+Le dossier "out" contient TOUS les fichiers à uploader.
+
+Sur Windows : 
+  C:\Users\VotreNom\...\mamaholding-website\out\
+
+Sur Mac/Linux :
+  /workspace/mamaholding-website/out/
+
+
+ÉTAPE 3 : Se connecter à o2switch
+----------------------------------
+1. Allez sur : https://www.o2switch.fr/
+2. Connectez-vous à votre espace client
+3. Accédez au cPanel
+
+
+ÉTAPE 4 : Upload des fichiers
+------------------------------
+Option A - Via cPanel :
+  1. Ouvrir "Gestionnaire de fichiers"
+  2. Aller dans "public_html"
+  3. Cliquer sur "Upload"
+  4. Sélectionner TOUS les fichiers du dossier "out"
+  5. Attendre la fin de l'upload
+
+Option B - Via FTP (FileZilla) :
+  1. Télécharger FileZilla
+  2. Se connecter avec vos identifiants FTP
+  3. Naviguer vers public_html/
+  4. Glisser-déposer tout le contenu de "out/"
+
+
+ÉTAPE 5 : Tester votre site
+----------------------------
+Ouvrir : https://votredomaine.com
+
+🎉 SITE EN LIGNE !
+
+
+==========================================================
+📝 NOTES IMPORTANTES
+==========================================================
+
+✅ Le dossier "out" contient environ 50-100 fichiers
+✅ L'upload peut prendre 5-15 minutes
+✅ Ne fermez pas la fenêtre pendant l'upload
+✅ Vérifiez que tous les fichiers sont bien uploadés
+
+
+==========================================================
+🔄 POUR METTRE À JOUR LE SITE
+==========================================================
+
+1. Modifier votre code localement
+2. Lancer : npm run build
+3. Re-uploader le dossier "out" sur o2switch
+
+
+==========================================================
+❓ BESOIN D'AIDE ?
+==========================================================
+
+Support o2switch :
+  Email : support@o2switch.fr
+  Tel : +33 4 44 44 60 40
+
+==========================================================
