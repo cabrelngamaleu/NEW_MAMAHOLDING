@@ -6,22 +6,22 @@ import { FaUserTie, FaUsers, FaChartLine } from 'react-icons/fa'
 export default function Gouvernance() {
   const leaders = [
     {
-      name: 'Directeur Général',
-      role: 'Direction Générale',
+      name: 'Administrateur Directeur Général',
+      role: 'Administrateur Direction Générale',
       description: 'Leadership stratégique et vision globale du groupe',
     },
     {
-      name: 'Directeur Commercial',
+      name: 'Chef de département Commercial',
       role: 'Direction Commerciale',
       description: 'Développement commercial et relations clients',
     },
     {
-      name: 'Directeur Financier',
-      role: 'Direction Financière',
+      name: 'Chef de département Financier & Comptabilité',
+      role: 'Chef de département Financier & Comptabilité',
       description: 'Gestion financière et contrôle de gestion',
     },
     {
-      name: 'Directeur des Opérations',
+      name: 'Attaché de Direction',
       role: 'Direction des Opérations',
       description: 'Optimisation des processus et logistique',
     },
