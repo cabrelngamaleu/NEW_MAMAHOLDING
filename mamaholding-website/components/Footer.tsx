@@ -58,16 +58,16 @@ const Footer = () => {
             </p>
             {/* Réseaux sociaux */}
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-primary-red rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+              <a href="#" className="w-10 h-10 bg-white text-primary-red rounded-full flex items-center justify-center hover:bg-primary-red hover:text-white transition-colors">
                 <FaFacebookF />
               </a>
-              <a href="#" className="w-10 h-10 bg-primary-red rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+              <a href="#" className="w-10 h-10 bg-white text-primary-red rounded-full flex items-center justify-center hover:bg-primary-red hover:text-white transition-colors">
                 <FaTwitter />
               </a>
-              <a href="#" className="w-10 h-10 bg-primary-red rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+              <a href="#" className="w-10 h-10 bg-white text-primary-red rounded-full flex items-center justify-center hover:bg-primary-red hover:text-white transition-colors">
                 <FaLinkedinIn />
               </a>
-              <a href="#" className="w-10 h-10 bg-primary-red rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+              <a href="#" className="w-10 h-10 bg-white text-primary-red rounded-full flex items-center justify-center hover:bg-primary-red hover:text-white transition-colors">
                 <FaInstagram />
               </a>
             </div>

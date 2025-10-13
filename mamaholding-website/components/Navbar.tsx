@@ -42,7 +42,9 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-lg py-4' : 'bg-white/95 py-6'
+        isScrolled 
+          ? 'bg-white shadow-lg py-4' 
+          : 'bg-white/10 backdrop-blur-md py-6'
       }`}
     >
       <div className="container-custom">
@@ -77,7 +79,9 @@ const Navbar = () => {
             </div>
             <div className="hidden md:block">
               <h1 className="text-xl font-bold text-primary-red">MAMA</h1>
-              <p className="text-sm text-gray-600">HOLDING S.A</p>
+              <p className={`text-sm ${
+                isScrolled ? 'text-gray-600' : 'text-white'
+              }`}>HOLDING S.A</p>
             </div>
           </Link>
 
@@ -132,7 +136,9 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-2xl text-primary-red"
+            className={`lg:hidden text-2xl ${
+              isScrolled ? 'text-primary-red' : 'text-white'
+            }`}
           >
             {isOpen ? <FaTimes /> : <FaBars />}
           </button>

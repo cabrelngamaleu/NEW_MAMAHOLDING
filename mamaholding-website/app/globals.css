@@ -13,13 +13,15 @@
 body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+  background-color: #FFFFFF;
+  color: #1F2937;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Style Beetle Heritage */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -59,35 +61,27 @@ html {
   background-size: cover;
 }
 
-/* Gradient texts */
-.gradient-text {
-  background: linear-gradient(135deg, #DC143C 0%, #22C55E 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Boutons personnalisés */
+/* Boutons personnalisés - Style Beetle Heritage */
 .btn-primary {
-  @apply bg-primary-red text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+  @apply bg-primary-red text-white px-8 py-4 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
 }
 
 .btn-secondary {
-  @apply bg-primary-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+  @apply bg-primary-green text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
 }
 
 .btn-outline {
   @apply border-2 border-primary-red text-primary-red px-6 py-3 rounded-lg font-semibold hover:bg-primary-red hover:text-white transition-all duration-300;
 }
 
-/* Cards */
+/* Cards - Style simple et épuré */
 .card {
-  @apply bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+  @apply bg-white rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
 }
 
 /* Section titles */
 .section-title {
-  @apply text-4xl md:text-5xl font-bold text-primary-dark mb-4;
+  @apply text-4xl md:text-5xl font-bold text-gray-900 mb-6;
 }
 
 .section-subtitle {
@@ -445,4 +439,19 @@ html {
   outline: 2px solid #DC143C;
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+/* Ligne décorative simple */
+.divider-line {
+  @apply w-24 h-1 bg-primary-red mx-auto;
+}
+
+/* Smooth transitions */
+a, button {
+  @apply transition-all duration-300;
+}
+
+/* Focus states */
+a:focus, button:focus, input:focus, textarea:focus {
+  @apply outline-none ring-2 ring-primary-red ring-offset-2;
 }

@@ -5,6 +5,8 @@ import Hero from '@/components/Hero'
 import AnimatedRings from '@/components/AnimatedRings'
 import { FaPlay, FaStar, FaShoppingCart, FaIndustry, FaLeaf, FaArrowRight } from 'react-icons/fa'
 import Link from 'next/link'
+import { useState } from 'react'
+import VideoModal from '@/components/VideoModal'
 
 export default function Home() {
   const values = [
@@ -189,6 +191,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="relative"
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Leader de l'industrie du commerce en gros
@@ -546,6 +549,7 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
     </>
   )
 }

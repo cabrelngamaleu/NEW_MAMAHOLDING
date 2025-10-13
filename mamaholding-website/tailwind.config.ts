@@ -13,8 +13,7 @@ const config: Config = {
           red: '#DC143C',      // Rouge MAMAHOLDING
           green: '#22C55E',    // Vert MAMAHOLDING
           white: '#FFFFFF',    // Blanc
-          dark: '#1F2937',     // Gris foncé pour textes
-          light: '#F9FAFB',    // Gris clair pour backgrounds
+          gray: '#F5F5F5',     // Gris clair pour backgrounds
         },
       },
       fontFamily: {
