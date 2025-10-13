@@ -2,5 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/ghew9261/mamaholding.net/public_html
-    - /bin/cp -r * $DEPLOYPATH/
-    - /bin/cp public/.htaccess $DEPLOYPATH/ 2>/dev/null || true
+    - /bin/cp -r mamaholding-website/* $DEPLOYPATH/
