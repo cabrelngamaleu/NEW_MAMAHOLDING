@@ -47,7 +47,7 @@ const PremiumHero = () => {
 
   return (
     <>
-      <div className="relative h-screen overflow-hidden">
+      <div className="relative h-screen overflow-hidden bg-white">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -65,8 +65,8 @@ const PremiumHero = () => {
               }}
             />
 
-            {/* Overlay bleu foncé (comme Beetle Heritage) */}
-            <div className="absolute inset-0 bg-primary-dark" style={{ opacity: 0.92 }} />
+            {/* Overlay blanc/transparent */}
+            <div className="absolute inset-0 bg-white/10" />
 
             {/* Contenu */}
             <div className="relative h-full flex items-center">
@@ -76,7 +76,7 @@ const PremiumHero = () => {
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3, duration: 0.8 }}
-                    className="text-4xl md:text-6xl font-bold text-white mb-2"
+                    className="text-5xl md:text-7xl font-bold text-white mb-4"
                   >
                     {slides[currentSlide].title}{' '}
                     <strong className="text-primary-red">
@@ -88,7 +88,7 @@ const PremiumHero = () => {
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
-                    className="text-xl text-white/90 mb-12 max-w-3xl"
+                    className="text-xl text-white mb-12 max-w-3xl leading-relaxed"
                   >
                     {slides[currentSlide].description}
                   </motion.p>
@@ -104,7 +104,7 @@ const PremiumHero = () => {
                     <a
                       href="/catalogue-mamaholding.pdf"
                       download
-                      className="bg-primary-red text-white px-8 py-4 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-3"
+                      className="bg-primary-red text-white px-8 py-4 rounded-md font-semibold hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-3"
                     >
                       <FaDownload />
                       Notre Catalogue
@@ -115,7 +115,7 @@ const PremiumHero = () => {
                       onClick={() => setIsVideoModalOpen(true)}
                       className="flex items-center gap-3 text-white hover:text-primary-green transition-all duration-300 group"
                     >
-                      <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-primary-green transition-all duration-300">
+                      <div className="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center group-hover:bg-primary-green group-hover:border-primary-green transition-all duration-300">
                         <FaPlay className="ml-1 text-xl" />
                       </div>
                       <span className="text-lg font-semibold">Regarder la vidéo</span>
@@ -136,7 +136,7 @@ const PremiumHero = () => {
               className={`transition-all duration-300 h-2 rounded-full ${
                 currentSlide === index
                   ? 'bg-primary-red w-12'
-                  : 'bg-white/40 w-2'
+                  : 'bg-white/60 w-2'
               }`}
             />
           ))}
@@ -145,13 +145,13 @@ const PremiumHero = () => {
         {/* Boutons de navigation */}
         <button
           onClick={prevSlide}
-          className="absolute left-8 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-primary-red text-white p-4 rounded-full transition-all duration-300 z-10"
+          className="absolute left-8 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-primary-red hover:text-white text-white p-4 rounded-full transition-all duration-300 z-10 backdrop-blur-sm"
         >
           <FaChevronLeft size={20} />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-8 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-primary-red text-white p-4 rounded-full transition-all duration-300 z-10"
+          className="absolute right-8 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-primary-red hover:text-white text-white p-4 rounded-full transition-all duration-300 z-10 backdrop-blur-sm"
         >
           <FaChevronRight size={20} />
         </button>
