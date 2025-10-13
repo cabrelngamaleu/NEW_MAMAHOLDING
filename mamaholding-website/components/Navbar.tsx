@@ -42,7 +42,9 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-lg py-4' : 'bg-white/95 py-6'
+        isScrolled 
+          ? 'glass-dark shadow-2xl shadow-primary-red/10 py-4' 
+          : 'bg-primary-dark/50 backdrop-blur-md py-6'
       }`}
     >
       <div className="container-custom">
@@ -76,8 +78,8 @@ const Navbar = () => {
               </svg>
             </div>
             <div className="hidden md:block">
-              <h1 className="text-xl font-bold text-primary-red">MAMA</h1>
-              <p className="text-sm text-gray-600">HOLDING S.A</p>
+              <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-red to-primary-green">MAMA</h1>
+              <p className="text-sm text-gray-400">HOLDING S.A</p>
             </div>
           </Link>
 
@@ -91,14 +93,14 @@ const Navbar = () => {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 {item.submenu ? (
-                  <button className="flex items-center space-x-1 text-sm font-semibold text-gray-700 hover:text-primary-red transition-colors">
-                    <span>{item.name}</span>
+                  <button className="flex items-center space-x-1 text-sm font-semibold text-gray-300 hover:text-primary-red transition-colors group">
+                    <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary-red group-hover:to-primary-green">{item.name}</span>
                     <FaChevronDown className="text-xs" />
                   </button>
                 ) : (
                   <Link
                     href={item.href || '#'}
-                    className="text-sm font-semibold text-gray-700 hover:text-primary-red transition-colors"
+                    className="text-sm font-semibold text-gray-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-primary-red hover:to-primary-green transition-all"
                   >
                     {item.name}
                   </Link>
@@ -106,12 +108,12 @@ const Navbar = () => {
 
                 {/* Dropdown Menu */}
                 {item.submenu && activeDropdown === item.name && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white shadow-xl rounded-lg overflow-hidden animate-slide-down">
+                  <div className="absolute top-full left-0 mt-2 w-56 glass-dark shadow-2xl shadow-primary-red/20 rounded-lg overflow-hidden animate-slide-down border border-white/10">
                     {item.submenu.map((subitem, subindex) => (
                       <Link
                         key={subindex}
                         href={subitem.href}
-                        className="block px-6 py-3 text-sm text-gray-700 hover:bg-primary-red hover:text-white transition-colors"
+                        className="block px-6 py-3 text-sm text-gray-300 hover:bg-gradient-to-r hover:from-primary-red hover:to-red-700 hover:text-white transition-all"
                       >
                         {subitem.name}
                       </Link>
@@ -125,15 +127,15 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-2xl text-primary-red"
+            className="lg:hidden text-2xl text-transparent bg-clip-text bg-gradient-to-r from-primary-red to-primary-green hover:scale-110 transition-transform"
           >
-            {isOpen ? <FaTimes /> : <FaBars />}
+            {isOpen ? <FaTimes className="text-primary-red" /> : <FaBars className="text-primary-green" />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden mt-6 pb-6 space-y-4 animate-slide-down">
+          <div className="lg:hidden mt-6 pb-6 space-y-4 animate-slide-down glass-dark rounded-lg p-4 border border-white/10">
             {menuItems.map((item, index) => (
               <div key={index}>
                 {item.submenu ? (
@@ -142,7 +144,7 @@ const Navbar = () => {
                       onClick={() =>
                         setActiveDropdown(activeDropdown === item.name ? null : item.name)
                       }
-                      className="flex items-center justify-between w-full text-left font-semibold text-gray-700 hover:text-primary-red transition-colors py-2"
+                      className="flex items-center justify-between w-full text-left font-semibold text-gray-300 hover:text-primary-red transition-colors py-2"
                     >
                       <span>{item.name}</span>
                       <FaChevronDown
@@ -157,7 +159,7 @@ const Navbar = () => {
                           <Link
                             key={subindex}
                             href={subitem.href}
-                            className="block text-sm text-gray-600 hover:text-primary-red transition-colors py-1"
+                            className="block text-sm text-gray-400 hover:text-primary-green transition-colors py-1"
                             onClick={() => setIsOpen(false)}
                           >
                             {subitem.name}
@@ -169,7 +171,7 @@ const Navbar = () => {
                 ) : (
                   <Link
                     href={item.href || '#'}
-                    className="block font-semibold text-gray-700 hover:text-primary-red transition-colors py-2"
+                    className="block font-semibold text-gray-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-primary-red hover:to-primary-green transition-all py-2"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
