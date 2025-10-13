@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import PremiumHero from '@/components/PremiumHero'
 import AnimatedCounter from '@/components/AnimatedCounter'
-import { FaBuilding, FaHandshake, FaChartLine, FaUsers, FaAward, FaGlobe, FaShoppingCart, FaIndustry, FaLeaf, FaPlay } from 'react-icons/fa'
+import { FaHandshake, FaChartLine, FaUsers, FaAward, FaShoppingCart, FaIndustry, FaLeaf, FaPlay } from 'react-icons/fa'
 import Link from 'next/link'
 import { useState } from 'react'
 import VideoModal from '@/components/VideoModal'
@@ -46,18 +46,21 @@ export default function Home() {
       name: 'CAC',
       description: 'Commerce et distribution de produits de qualité',
       icon: <FaShoppingCart />,
+      color: 'bg-primary-red',
       href: '/entites/cac',
     },
     {
       name: 'TRINCO',
       description: 'Solutions industrielles et commerciales innovantes',
       icon: <FaIndustry />,
+      color: 'bg-primary-green',
       href: '/entites/trinco',
     },
     {
       name: 'ECOFOOD',
       description: 'Produits alimentaires de qualité supérieure',
       icon: <FaLeaf />,
+      color: 'bg-primary-green',
       href: '/entites/ecofood',
     },
   ]
@@ -87,7 +90,7 @@ export default function Home() {
     <>
       <PremiumHero />
 
-      {/* Section À propos - Style Beetle Heritage */}
+      {/* Section À propos - Fond BLANC */}
       <section id="about" className="py-24 bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -105,15 +108,15 @@ export default function Home() {
                   alt="MAMAHOLDING"
                   className="w-full h-[500px] object-cover rounded-lg shadow-xl"
                 />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-primary-dark/70 rounded-lg" />
+                {/* Overlay léger */}
+                <div className="absolute inset-0 bg-gray-900/40 rounded-lg" />
                 
                 {/* Bouton Play */}
                 <button
                   onClick={() => setIsVideoModalOpen(true)}
                   className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
                 >
-                  <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center group-hover:bg-primary-red transition-all duration-300 shadow-2xl">
+                  <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center group-hover:bg-primary-red transition-all duration-300 shadow-2xl group-hover:scale-110">
                     <FaPlay className="ml-1 text-primary-red group-hover:text-white text-2xl" />
                   </div>
                 </button>
@@ -156,8 +159,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section Chiffres Clés - Fond bleu foncé */}
-      <section className="py-24 bg-primary-dark text-white">
+      {/* Section Chiffres Clés - Fond GRIS CLAIR */}
+      <section className="py-24 bg-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
             {stats.map((stat, index) => (
@@ -167,19 +170,19 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center"
+                className="text-center group"
               >
-                <div className="text-6xl md:text-7xl font-bold text-primary-red mb-4">
+                <div className="text-6xl md:text-7xl font-bold text-primary-red mb-4 group-hover:scale-110 transition-transform duration-300">
                   <AnimatedCounter end={stat.number} suffix={stat.suffix} />
                 </div>
-                <div className="text-lg md:text-xl text-white/90">{stat.label}</div>
+                <div className="text-lg md:text-xl text-gray-700 font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Section Nos Valeurs - Fond blanc */}
+      {/* Section Nos Valeurs - Fond BLANC */}
       <section className="py-24 bg-white">
         <div className="container-custom">
           <motion.div
@@ -207,7 +210,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl shadow-lg p-8 text-center group hover:shadow-2xl transition-all duration-300"
+                className="bg-white border border-gray-200 rounded-lg p-8 text-center group hover:shadow-xl hover:border-primary-red transition-all duration-300"
               >
                 <div className="text-5xl text-primary-red mb-6 flex justify-center group-hover:scale-110 transition-transform duration-300">
                   {value.icon}
@@ -226,8 +229,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section Nos Entités - Fond gris clair */}
-      <section className="py-24 bg-primary-light">
+      {/* Section Nos Entités - Fond GRIS CLAIR */}
+      <section className="py-24 bg-gray-50">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -256,14 +259,14 @@ export default function Home() {
                 viewport={{ once: true }}
               >
                 <Link href={entity.href} className="block group">
-                  <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full">
-                    <div className="bg-primary-red text-white p-12 group-hover:bg-red-700 transition-all duration-300">
+                  <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full">
+                    <div className={`${entity.color} text-white p-12 group-hover:opacity-90 transition-all duration-300`}>
                       <div className="text-7xl mb-6 flex justify-center">
                         {entity.icon}
                       </div>
                       <h3 className="text-4xl font-bold text-center">{entity.name}</h3>
                     </div>
-                    <div className="p-6">
+                    <div className="p-6 bg-white">
                       <p className="text-gray-600 text-center leading-relaxed text-lg">
                         {entity.description}
                       </p>
@@ -281,7 +284,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section Actualités - Fond blanc */}
+      {/* Section Actualités - Fond BLANC */}
       <section className="py-24 bg-white">
         <div className="container-custom">
           <motion.div
@@ -309,7 +312,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl hover:border-primary-red transition-all duration-300"
               >
                 <div className="h-56 bg-primary-red flex items-center justify-center text-white text-2xl font-bold">
                   {item.category}
@@ -321,7 +324,7 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-primary-red transition-colors duration-300">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">{item.excerpt}</p>
+                  <p className="text-gray-600 mb-4 leading-relaxed">{item.excerpt}</p>
                   <Link href="/espace-presse" className="text-primary-red font-semibold hover:underline">
                     Lire la suite →
                   </Link>
@@ -338,7 +341,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section CTA - Fond rouge */}
+      {/* Section CTA - Fond ROUGE */}
       <section className="py-24 bg-primary-red text-white">
         <div className="container-custom text-center">
           <motion.div
@@ -350,10 +353,10 @@ export default function Home() {
             <h2 className="text-4xl md:text-6xl font-bold mb-8">
               Prêt à Collaborer avec Nous ?
             </h2>
-            <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
               Contactez-nous dès aujourd'hui pour discuter de vos besoins et découvrir comment MAMAHOLDING peut vous accompagner.
             </p>
-            <Link href="/contact" className="inline-block bg-white text-primary-red px-10 py-5 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-xl">
+            <Link href="/contact" className="inline-block bg-white text-primary-red px-10 py-5 rounded-md font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl">
               Nous Contacter
             </Link>
           </motion.div>

@@ -13,8 +13,7 @@ const config: Config = {
           red: '#DC143C',      // Rouge MAMAHOLDING
           green: '#22C55E',    // Vert MAMAHOLDING
           white: '#FFFFFF',    // Blanc
-          dark: '#081225',     // Bleu très foncé (exactement comme Beetle Heritage)
-          light: '#F9FAFB',    // Gris très clair pour backgrounds
+          gray: '#F5F5F5',     // Gris clair pour backgrounds
         },
       },
       fontFamily: {
