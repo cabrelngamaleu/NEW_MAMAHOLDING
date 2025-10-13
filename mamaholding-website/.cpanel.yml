@@ -2,5 +2,8 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/ghew9261/mamaholding.net/public_html
+    - cd /home/ghew9261/mamaholding.net/mamaholding-website
+    - npm install
+    - npm run build
     - /bin/cp -r /home/ghew9261/mamaholding.net/mamaholding-website/out/* $DEPLOYPATH/
     - /bin/cp /home/ghew9261/mamaholding.net/mamaholding-website/public/.htaccess $DEPLOYPATH/ 2>/dev/null || true
