@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/ghew9261/mamaholding.net
+    - /bin/cp -R /home/ghew9261/mamaholding.net/mamaholding-website/* $DEPLOYPATH/
+    - /bin/cp -R /home/ghew9261/mamaholding.net/mamaholding-website/.[^.]* $DEPLOYPATH/ 2>/dev/null || true
