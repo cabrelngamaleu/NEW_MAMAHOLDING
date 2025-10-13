@@ -2,14 +2,22 @@
 
 import Link from 'next/link'
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
+import AnimatedRings from './AnimatedRings'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-gradient-to-br from-primary-dark via-gray-900 to-primary-dark text-white">
+    <footer className="bg-gradient-to-br from-primary-red via-red-800 to-primary-red text-white relative overflow-hidden">
+      {/* Anneaux de fond */}
+      <AnimatedRings 
+        className="absolute inset-0 z-0" 
+        size="large" 
+        variant="floating" 
+        intensity="subtle"
+      />
       {/* Section principale */}
-      <div className="container-custom py-16">
+      <div className="container-custom py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* À propos */}
           <div>
@@ -119,29 +127,36 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Contact et Heures */}
           <div>
             <h4 className="text-lg font-bold mb-6 text-primary-green">Contact</h4>
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <FaMapMarkerAlt className="text-primary-red mt-1 flex-shrink-0" />
-                <span className="text-gray-300">Adresse du siège social</span>
+                <span className="text-gray-300">Yaoundé - Etoudi, Cameroun</span>
               </li>
               <li className="flex items-start space-x-3">
                 <FaPhone className="text-primary-red mt-1 flex-shrink-0" />
-                <span className="text-gray-300">+XXX XX XX XX XX</span>
+                <span className="text-gray-300">+237 656 917 202</span>
               </li>
               <li className="flex items-start space-x-3">
                 <FaEnvelope className="text-primary-red mt-1 flex-shrink-0" />
-                <span className="text-gray-300">contact@mamaholding.com</span>
+                <span className="text-gray-300">contact@mamaholding.net</span>
               </li>
             </ul>
+            <div className="mt-6">
+              <h5 className="font-semibold mb-3 text-primary-green">Heures d'ouverture</h5>
+              <ul className="space-y-2 text-sm text-gray-300">
+                <li>Lundi-Samedi : 8h à 17h30</li>
+                <li>Dimanche : 8h à 15h30</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Barre de copyright */}
-      <div className="border-t border-gray-800">
+      <div className="border-t border-white/20 relative z-10">
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">

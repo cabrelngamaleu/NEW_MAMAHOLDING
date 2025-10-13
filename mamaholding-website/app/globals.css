@@ -98,3 +98,351 @@ html {
 .container-custom {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
+
+/* Anneaux animés MAMAHOLDING */
+@keyframes rotate-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-ring-reverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.4;
+  }
+}
+
+@keyframes float-ring {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(10px) rotate(240deg);
+  }
+}
+
+.ring-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.ring-red {
+  position: absolute;
+  border: 3px solid #DC143C;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: rotate-ring 20s linear infinite;
+}
+
+.ring-green {
+  position: absolute;
+  border: 3px solid #16A34A;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: rotate-ring-reverse 25s linear infinite;
+}
+
+.ring-white {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: pulse-ring 4s ease-in-out infinite;
+}
+
+.ring-floating {
+  animation: float-ring 8s ease-in-out infinite;
+}
+
+/* Anneaux de différentes tailles */
+.ring-small {
+  width: 100px;
+  height: 100px;
+}
+
+.ring-medium {
+  width: 200px;
+  height: 200px;
+}
+
+.ring-large {
+  width: 300px;
+  height: 300px;
+}
+
+.ring-xl {
+  width: 400px;
+  height: 400px;
+}
+
+.ring-2xl {
+  width: 500px;
+  height: 500px;
+}
+
+/* Effets de particules avec anneaux */
+.ring-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ring-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #DC143C;
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.ring-particle:nth-child(2n) {
+  background: #16A34A;
+  animation-delay: -2s;
+}
+
+.ring-particle:nth-child(3n) {
+  background: rgba(255, 255, 255, 0.8);
+  animation-delay: -4s;
+}
+
+/* Anneaux avec dégradés */
+.ring-gradient-red {
+  border: 3px solid transparent;
+  background: linear-gradient(45deg, #DC143C, #B8112A) border-box;
+  border-radius: 50%;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+.ring-gradient-green {
+  border: 3px solid transparent;
+  background: linear-gradient(45deg, #16A34A, #15803D) border-box;
+  border-radius: 50%;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+/* Anneaux avec ombres */
+.ring-shadow {
+  filter: drop-shadow(0 0 20px rgba(220, 20, 60, 0.3));
+}
+
+.ring-shadow-green {
+  filter: drop-shadow(0 0 20px rgba(22, 163, 74, 0.3));
+}
+
+.ring-shadow-white {
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+}
+
+/* Responsive pour les anneaux */
+@media (max-width: 768px) {
+  .ring-small {
+    width: 60px;
+    height: 60px;
+  }
+
+  .ring-medium {
+    width: 120px;
+    height: 120px;
+  }
+
+  .ring-large {
+    width: 180px;
+    height: 180px;
+  }
+
+  .ring-xl {
+    width: 240px;
+    height: 240px;
+  }
+
+  .ring-2xl {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Réduire l'opacité sur mobile */
+  .ring-red,
+  .ring-green,
+  .ring-white {
+    opacity: 0.3;
+  }
+
+  /* Réduire les particules sur mobile */
+  .ring-particle {
+    width: 2px;
+    height: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ring-small {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ring-medium {
+    width: 80px;
+    height: 80px;
+  }
+
+  .ring-large {
+    width: 120px;
+    height: 120px;
+  }
+
+  .ring-xl {
+    width: 160px;
+    height: 160px;
+  }
+
+  .ring-2xl {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* Encore plus subtil sur très petits écrans */
+  .ring-red,
+  .ring-green,
+  .ring-white {
+    opacity: 0.2;
+  }
+}
+
+/* Performance optimizations */
+.ring-container {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.ring-red,
+.ring-green,
+.ring-white {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Réduire les animations sur les appareils avec préférence de mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  .ring-red,
+  .ring-green,
+  .ring-white,
+  .ring-floating,
+  .ring-particle {
+    animation: none;
+  }
+}
+
+/* Animations pour les menus déroulants */
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.3s ease-out;
+}
+
+/* Amélioration des menus déroulants */
+.dropdown-menu {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.dropdown-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.dropdown-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(220, 20, 60, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.dropdown-item:hover::before {
+  left: 100%;
+}
+
+/* Zone de survol étendue pour les menus */
+.menu-item-container {
+  position: relative;
+}
+
+.menu-item-container::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  z-index: -1;
+}
+
+/* Indicateurs visuels pour les menus actifs */
+.menu-active {
+  position: relative;
+}
+
+.menu-active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #DC143C;
+  transition: width 0.3s ease;
+}
+
+.menu-active:hover::after {
+  width: 100%;
+}
+
+/* Amélioration de la lisibilité */
+.menu-text {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus visible pour l'accessibilité */
+.menu-button:focus-visible,
+.menu-link:focus-visible {
+  outline: 2px solid #DC143C;
+  outline-offset: 2px;
+  border-radius: 4px;
+}

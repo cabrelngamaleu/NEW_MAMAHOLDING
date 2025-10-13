@@ -13,17 +13,17 @@ export default function Contact() {
     {
       icon: <FaPhone />,
       title: 'Téléphone',
-      content: '+XXX XX XX XX XX',
+      content: '+237 656 917 202',
     },
     {
       icon: <FaEnvelope />,
       title: 'Email',
-      content: 'contact@mamaholding.com',
+      content: 'contact@mamaholding.net',
     },
     {
       icon: <FaClock />,
       title: 'Horaires',
-      content: 'Lun - Ven : 8h00 - 17h00',
+      content: 'Lun -Sam : 8h00 - 17h30',
     },
   ]
 
