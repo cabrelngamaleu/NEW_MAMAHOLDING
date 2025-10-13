@@ -13,21 +13,8 @@ const config: Config = {
           red: '#DC143C',      // Rouge MAMAHOLDING
           green: '#22C55E',    // Vert MAMAHOLDING
           white: '#FFFFFF',    // Blanc
-          dark: '#0A0E1A',     // Fond très sombre (inspiré Beetle Heritage)
-          'dark-secondary': '#1A1F2E', // Fond sombre secondaire
-          'dark-accent': '#242938',    // Accent sombre
-          light: '#F9FAFB',    // Gris clair pour backgrounds
-          gray: {
-            '100': '#F3F4F6',
-            '200': '#E5E7EB',
-            '300': '#D1D5DB',
-            '400': '#9CA3AF',
-            '500': '#6B7280',
-            '600': '#4B5563',
-            '700': '#374151',
-            '800': '#1F2937',
-            '900': '#111827',
-          },
+          dark: '#081225',     // Bleu très foncé (exactement comme Beetle Heritage)
+          light: '#F9FAFB',    // Gris très clair pour backgrounds
         },
       },
       fontFamily: {
