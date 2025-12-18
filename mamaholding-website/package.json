@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Site web moderne pour MAMAHOLDING S.A - Commerce en gros",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -H 0.0.0.0",
     "build": "next build",
-    "start": "next start",
+    "start": "node server.js",
     "lint": "next lint"
   },
   "dependencies": {
