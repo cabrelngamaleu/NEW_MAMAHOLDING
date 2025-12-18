@@ -1,0 +1,61 @@
+name: Build and Deploy to o2switch
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js
+        run: npm run build --if-present
+
+      - name: Pack built files
+        run: |
+          tar -czf site-artifact.tgz .next public package.json package-lock.json || true
+
+      - name: Copy artifact to server via SCP
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: ${{ secrets.SERVER_SSH_PORT }}
+          source: "site-artifact.tgz"
+          target: "/home/ghew9261/deploy_temp/"
+
+      - name: Deploy on server and finalize
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: ${{ secrets.SERVER_SSH_PORT }}
+          script: |
+            set -e
+            mkdir -p /home/ghew9261/deploy_temp
+            tar -xzf /home/ghew9261/deploy_temp/site-artifact.tgz -C /home/ghew9261/deploy_temp || true
+            rsync -a --delete /home/ghew9261/deploy_temp/.next /home/ghew9261/repositories/NEW_MAMAHOLDING/mamaholding-website/
+            rsync -a --delete /home/ghew9261/deploy_temp/public /home/ghew9261/repositories/NEW_MAMAHOLDING/mamaholding-website/
+            cp /home/ghew9261/deploy_temp/package.json /home/ghew9261/repositories/NEW_MAMAHOLDING/mamaholding-website/ || true
+            cp /home/ghew9261/deploy_temp/package-lock.json /home/ghew9261/repositories/NEW_MAMAHOLDING/mamaholding-website/ || true
+            cd /home/ghew9261/repositories/NEW_MAMAHOLDING/mamaholding-website
+            npm ci --production || true
+            # Trigger cPanel to notice file changes (will often restart the Node app)
+            touch server.js || true
+
+      - name: Done
+        run: echo "Deployment finished"
