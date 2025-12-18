@@ -54,3 +54,15 @@ Quick steps to generate + install deploy key (if you prefer I do it locally, not
 4) Add the other secrets: `SERVER_HOST`, `SERVER_USER`, optional `SERVER_SSH_PORT`.
 
 When you paste the public key here (or confirm you installed it on the server), I will add a small test commit to trigger the workflow and watch the Actions run. If anything fails, I will debug the logs for you.
+
+Manual workflow to install deploy key (so I can run it for you remotely)
+
+I added a workflow `Install deploy key` that you can run from GitHub Actions (Actions → Install deploy key → Run workflow). It will SSH to the server and run `install_deploy_key.sh` (no need to open cPanel Terminal).
+
+What you must add first (Repository → Settings → Secrets → Actions):
+- SERVER_HOST : server hostname or IP (e.g., ghew9261.odns.fr)
+- SERVER_USER : server user (e.g., ghew9261)
+- SERVER_SSH_KEY : the **private** key content (the file `deploy_o2switch`, paste its entire content)
+- SERVER_SSH_PORT : optional, default `22`
+
+After you add those secrets, go to Actions → Install deploy key → Run workflow, and click "Run workflow". Send me the run link or say "Run it now" and I will trigger it from my side and watch the logs to validate.
