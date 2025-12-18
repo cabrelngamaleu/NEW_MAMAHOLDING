@@ -14,6 +14,8 @@ const config: Config = {
           green: '#22C55E',    // Vert MAMAHOLDING
           white: '#FFFFFF',    // Blanc
           gray: '#F5F5F5',     // Gris clair pour backgrounds
+          dark: '#1F2937',     // Gris foncé pour le texte
+          light: '#F9FAFB',    // Gris très clair
         },
       },
       fontFamily: {
@@ -23,6 +25,8 @@ const config: Config = {
         'fade-in': 'fadeIn 0.5s ease-in',
         'slide-up': 'slideUp 0.5s ease-out',
         'slide-down': 'slideDown 0.5s ease-out',
+        'spin-slow': 'spin 30s linear infinite',
+        'spin-reverse': 'spin-reverse 35s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -36,6 +40,10 @@ const config: Config = {
         slideDown: {
           '0%': { transform: 'translateY(-20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        'spin-reverse': {
+          '0%': { transform: 'rotate(360deg)' },
+          '100%': { transform: 'rotate(0deg)' },
         },
       },
     },

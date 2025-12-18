@@ -6,7 +6,15 @@ const nextConfig = {
     domains: ['localhost'],
     unoptimized: true,
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  compress: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
+  experimental: {
+    optimizeCss: true,
+  },
 }
 
 module.exports = nextConfig

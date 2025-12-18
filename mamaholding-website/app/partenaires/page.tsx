@@ -1,21 +1,20 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaHandshake, FaGlobe, FaTruck, FaIndustry, FaLeaf, FaAward, FaUsers, FaRocket } from 'react-icons/fa'
+import { FaHandshake, FaGlobe, FaTruck, FaIndustry, FaLeaf, FaAward, FaUsers, FaRocket, FaBuilding, FaBox } from 'react-icons/fa'
 import Link from 'next/link'
 import Image from 'next/image'
 
 export default function Partenaires() {
   const partners = [
     {
-      name: 'Société Camerounaise de Raffinage Maya & Cie',
+      name: 'SCR MAYA',
       category: 'Fournisseur Principal',
-      entity: 'MAMAHOLDING S.A',
+      entity: 'MAMAHOLDING',
       description: 'Partenaire stratégique majeur pour l\'approvisionnement en produits diversifiés',
       since: '2010',
-      icon: '🏢',
       logo: '/src.png',
-      website: 'https://www.scrmaya.com',
+      hasLogo: true,
     },
     {
       name: 'AFISA',
@@ -23,17 +22,26 @@ export default function Partenaires() {
       entity: 'ECOFOOD',
       description: 'Fournisseur de produits alimentaires de qualité pour notre réseau de distribution',
       since: '2012',
-      icon: '🍫',
+      icon: <FaBox />,
+      hasLogo: false,
     },
     {
-      name: 'Africa Food Manufacture',
+      name: 'AFM',
       category: 'Fournitures Diverses',
       entity: 'CAC',
       description: 'Partenariat pour la fourniture de produits de grande consommation',
       since: '2011',
-      icon: '📦',
       logo: '/afm.png',
-      website: 'https://africafoodmanufacture.com/',
+      hasLogo: true,
+    },
+    {
+      name: 'AFI',
+      category: 'Solutions Industrielles',
+      entity: 'TRINCO',
+      description: 'Fournisseur d\'équipements et solutions industrielles',
+      since: '2013',
+      icon: <FaIndustry />,
+      hasLogo: false,
     },
     {
       name: 'AZUR',
@@ -41,8 +49,8 @@ export default function Partenaires() {
       entity: 'CAC',
       description: 'Partenaire pour la distribution de produits spécialisés',
       since: '2014',
-      icon: '🚚',
       logo: '/azur.jpg',
+      hasLogo: true,
     },
     {
       name: 'PAFIC',
@@ -50,8 +58,8 @@ export default function Partenaires() {
       entity: 'ECOFOOD',
       description: 'Fournisseur de produits alimentaires et conserves',
       since: '2015',
-      icon: '🥫',
       logo: '/Pafic.jpg',
+      hasLogo: true,
     },
     {
       name: 'OLAM',
@@ -59,19 +67,17 @@ export default function Partenaires() {
       entity: 'ECOFOOD',
       description: 'Leader mondial de l\'agro-industrie, partenaire pour produits agricoles',
       since: '2016',
-      icon: '🌾',
       logo: '/OLAM.png',
-      website: 'https://www.olamagri.com/locations/cameroon.html',
+      hasLogo: true,
     },
     {
-      name: 'MOI FOODS',
+      name: 'MOI FOOD',
       category: 'Produits Alimentaires',
       entity: 'ECOFOOD',
       description: 'Fournisseur de produits alimentaires frais et transformés',
       since: '2017',
-      icon: '🍱',
       logo: '/moi_foods.jpg',
-      website: 'https://www.facebook.com/moifoodscameroun/',
+      hasLogo: true,
     },
     {
       name: 'Producteurs Locaux',
@@ -79,7 +85,8 @@ export default function Partenaires() {
       entity: 'ECOFOOD',
       description: 'Partenariat avec plus de 80 producteurs locaux pour des produits frais',
       since: '2015',
-      icon: '👨‍🌾',
+      icon: <FaUsers />,
+      hasLogo: false,
     },
   ]
 
@@ -137,81 +144,91 @@ export default function Partenaires() {
   ]
 
   return (
-    <div className="min-h-screen bg-white mt-20 md:mt-24">
-      {/* Hero Section - Design Ultra Interactif */}
-      <section className="relative bg-gradient-to-br from-orange-900 via-amber-800 to-yellow-900 text-white py-32 overflow-hidden">
-        {/* Fond animé avec particules flottantes */}
-        <div className="absolute inset-0">
-          {/* Cercles animés multiples */}
-          <motion.div 
-            className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full blur-3xl opacity-30"
-            animate={{ 
-              scale: [1, 1.3, 1],
-              x: [0, 50, 0],
-              y: [0, -30, 0]
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div 
-            className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-orange-400 to-amber-500 rounded-full blur-3xl opacity-30"
-            animate={{ 
-              scale: [1, 1.4, 1],
-              x: [0, -40, 0],
-              y: [0, 40, 0]
-            }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div 
-            className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-full blur-3xl opacity-20"
-            animate={{ 
-              scale: [1, 1.5, 1],
-              rotate: [0, 180, 360]
-            }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          />
-        </div>
-        
-        {/* Particules flottantes multiples */}
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Design Ultra-Dynamique */}
+      <section className="relative bg-gradient-to-br from-green-600 via-green-700 to-green-900 text-white py-32 overflow-hidden">
+        {/* Particules flottantes */}
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(20)].map((_, i) => (
+          {[...Array(25)].map((_, i) => (
             <motion.div
-              key={i}
+              key={`particle-${i}`}
               className="absolute w-2 h-2 bg-white rounded-full"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
+                left: `${(i * 7) % 100}%`,
+                top: `${(i * 11) % 100}%`,
+                opacity: 0.3 + (i % 3) * 0.1
               }}
               animate={{
-                y: [0, -30, 0],
-                x: [0, Math.random() * 20 - 10, 0],
-                opacity: [0.2, 0.8, 0.2],
-                scale: [1, 1.5, 1],
+                y: [0, -50, 0],
+                x: [0, (i % 2 === 0 ? 40 : -40), 0],
+                scale: [1, 1.8, 1],
+                opacity: [0.3, 0.9, 0.3]
               }}
               transition={{
-                duration: 3 + Math.random() * 4,
+                duration: 5 + i * 0.3,
                 repeat: Infinity,
-                delay: Math.random() * 2,
+                ease: "easeInOut",
+                delay: i * 0.15
               }}
             />
           ))}
         </div>
+
+        {/* Halos animés */}
+        <div className="absolute inset-0 opacity-20">
+          <motion.div 
+            className="absolute top-20 left-10 w-96 h-96 bg-white rounded-full blur-3xl"
+            animate={{ 
+              scale: [1, 1.4, 1],
+              x: [0, 50, 0],
+              y: [0, -40, 0],
+              rotate: [0, 180, 360]
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute bottom-20 right-10 w-80 h-80 bg-white rounded-full blur-3xl"
+            animate={{ 
+              scale: [1, 1.5, 1],
+              x: [0, -40, 0],
+              y: [0, 50, 0],
+              rotate: [360, 180, 0]
+            }}
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
+
+        {/* Lignes animées */}
+        <div className="absolute inset-0 opacity-10">
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={`line-${i}`}
+              className="absolute h-px bg-white"
+              style={{ top: `${15 + i * 14}%`, width: '100%' }}
+              animate={{
+                x: ['-100%', '200%'],
+                opacity: [0, 0.6, 0]
+              }}
+              transition={{
+                duration: 7 + i,
+                repeat: Infinity,
+                ease: "linear",
+                delay: i * 0.6
+              }}
+            />
+          ))}
+        </div>
+        {/* Éléments décoratifs futuristes */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+        </div>
         
-        {/* Grille futuriste animée */}
-        <motion.div 
-          className="absolute inset-0 opacity-10" 
-          style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,.15) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,.15) 2px, transparent 2px)',
-            backgroundSize: '60px 60px'
-          }}
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%']
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
+        {/* Grille futuriste en arrière-plan */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
+        }}></div>
         
         <div className="container-custom relative z-10">
           <motion.div
@@ -224,51 +241,20 @@ export default function Partenaires() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              whileHover={{ scale: 1.05 }}
-              className="inline-block bg-white/20 backdrop-blur-md px-8 py-3 rounded-full mb-8 border-2 border-white/40 shadow-2xl"
+              className="inline-block bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full mb-6 border border-white/30"
             >
-              <div className="flex items-center gap-3">
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <FaHandshake className="text-yellow-300 text-xl" />
-                </motion.div>
-                <span className="text-white font-bold text-lg">Partenariats Stratégiques</span>
-              </div>
+              <span className="text-white font-semibold">Partenariats Stratégiques</span>
             </motion.div>
             
-            <motion.div 
-              className="flex justify-center mb-6"
-              animate={{ 
-                rotate: [0, -10, 10, 0],
-                scale: [1, 1.1, 1]
-              }}
-              transition={{ duration: 4, repeat: Infinity }}
-            >
-              <FaHandshake className="text-7xl" />
-            </motion.div>
-            <motion.h1 
-              className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight"
-              animate={{ 
-                textShadow: [
-                  '0 0 20px rgba(255,255,255,0.5)',
-                  '0 0 40px rgba(255,255,255,0.8)',
-                  '0 0 20px rgba(255,255,255,0.5)'
-                ]
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
+            <div className="flex justify-center mb-6">
+              <FaHandshake className="text-6xl" />
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               Nos Partenaires
-            </motion.h1>
-            <motion.p 
-              className="text-xl md:text-2xl opacity-95 leading-relaxed"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.95 }}
-              transition={{ delay: 0.4 }}
-            >
+            </h1>
+            <p className="text-xl md:text-2xl opacity-95 leading-relaxed">
               Ensemble, nous construisons un avenir commercial prospère
-            </motion.p>
+            </p>
           </motion.div>
         </div>
       </section>
@@ -290,7 +276,7 @@ export default function Partenaires() {
               <div className="flex flex-col h-full">
                 <FaHandshake className="text-5xl text-primary-green mb-6" />
                 <p className="text-primary-dark text-lg leading-relaxed" style={{ color: '#1F2937' }}>
-                  Depuis plus de 20 ans, MAMAHOLDING S.A collabore avec des partenaires de renom, 
+                  Depuis plus de 20 ans, MAMAHOLDING collabore avec des partenaires de renom, 
                   tant internationaux que locaux. Nos partenariats sont fondés sur la confiance mutuelle, 
                   le respect des engagements et la recherche constante de l'excellence. Ensemble, 
                   nous créons de la valeur pour nos clients et contribuons au développement économique du Cameroun.
@@ -316,91 +302,60 @@ export default function Partenaires() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {partners.map((partner, index) => {
-              const CardContent = (
+            {partners.map((partner, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="card text-center group hover:shadow-2xl transition-all duration-300 relative overflow-hidden"
+              >
+                {/* Effet de brillance au hover */}
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.05 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 text-center cursor-pointer border-2 border-transparent hover:border-orange-300"
-                >
-                  {/* Fond dégradé animé au hover */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-orange-50 to-yellow-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
-                  />
-                  
-                  <div className="relative z-10">
-                    {/* Logo ou Icône */}
-                    {partner.logo ? (
-                      <motion.div
-                        className={`${partner.name === 'OLAM' ? 'w-40 h-40' : 'w-32 h-32'} mx-auto mb-4 relative flex items-center justify-center`}
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {partner.logo.endsWith('.webp') ? (
-                          <img
-                            src={partner.logo}
-                            alt={partner.name}
-                            className="max-w-full max-h-full object-contain"
-                          />
-                        ) : (
-                          <Image
-                            src={partner.logo}
-                            alt={partner.name}
-                            fill
-                            className={`object-contain ${partner.name === 'OLAM' ? 'brightness-0 saturate-100' : ''}`}
-                            sizes="128px"
-                            unoptimized
-                            style={partner.name === 'OLAM' ? { filter: 'invert(48%) sepia(79%) saturate(500%) hue-rotate(86deg) brightness(95%) contrast(119%)' } : undefined}
-                          />
-                        )}
-                      </motion.div>
-                    ) : (
-                      <motion.div 
-                        className="text-7xl mb-4"
-                        whileHover={{ scale: 1.2, rotate: 360 }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        {partner.icon}
-                      </motion.div>
-                    )}
-                    
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{partner.name}</h3>
-                    <motion.p 
-                      className="text-sm font-bold mb-4 bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent inline-block"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      {partner.category}
-                    </motion.p>
-                    <p className="text-gray-600 mb-4 leading-relaxed text-sm">{partner.description}</p>
-                    <div className="flex items-center justify-between pt-4 border-t-2 border-gray-100">
-                      <span className="text-xs text-gray-500 font-semibold flex items-center gap-1">
-                        <span className="text-orange-600">📅</span> Depuis {partner.since}
-                      </span>
-                      <span className="text-xs font-bold bg-gradient-to-r from-red-600 to-red-700 text-white px-3 py-1 rounded-full">{partner.entity}</span>
-                    </div>
-                  </div>
-                </motion.div>
-              )
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-green-100/30 to-transparent"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: '100%' }}
+                  transition={{ duration: 0.8 }}
+                />
 
-              // Si le partenaire a un site web, on l'enveloppe dans un lien
-              return partner.website ? (
-                <a
-                  key={index}
-                  href={partner.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  {CardContent}
-                </a>
-              ) : (
-                CardContent
-              )
-            })}
+                {/* Logo ou icône */}
+                <div className="mb-6 relative z-10">
+                  {partner.hasLogo && partner.logo ? (
+                    <motion.div
+                      className="mx-auto w-32 h-32 relative bg-white rounded-2xl shadow-lg p-4 group-hover:shadow-2xl transition-shadow"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={partner.logo}
+                        alt={`Logo ${partner.name}`}
+                        fill
+                        className={`object-contain p-2 ${partner.name === 'OLAM' ? 'brightness-0 saturate-100' : ''}`}
+                        style={partner.name === 'OLAM' ? { filter: 'invert(25%) sepia(95%) saturate(1500%) hue-rotate(85deg) brightness(95%)' } : undefined}
+                      />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      className="text-6xl text-primary-green mx-auto w-32 h-32 flex items-center justify-center bg-green-50 rounded-2xl shadow-lg group-hover:shadow-2xl transition-shadow"
+                      whileHover={{ scale: 1.1, rotate: -5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {partner.icon}
+                    </motion.div>
+                  )}
+                </div>
+
+                <h3 className="text-2xl font-bold text-primary-dark mb-2 relative z-10 group-hover:text-primary-green transition-colors">{partner.name}</h3>
+                <p className="text-sm font-semibold text-primary-green mb-4 relative z-10">{partner.category}</p>
+                <p className="text-gray-600 mb-4 leading-relaxed relative z-10">{partner.description}</p>
+                <div className="flex items-center justify-between pt-4 border-t border-gray-200 relative z-10">
+                  <span className="text-sm text-gray-500">Depuis {partner.since}</span>
+                  <span className="text-sm font-semibold text-primary-red">{partner.entity}</span>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -418,7 +373,7 @@ export default function Partenaires() {
             <h2 className="section-title">Pourquoi Devenir Partenaire ?</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary-red to-primary-green mx-auto mb-6"></div>
             <p className="section-subtitle">
-              Les avantages d'un partenariat avec MAMAHOLDING S.A
+              Les avantages d'un partenariat avec MAMAHOLDING
             </p>
           </motion.div>
 
@@ -426,22 +381,17 @@ export default function Partenaires() {
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -10, scale: 1.05 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 text-center cursor-pointer border-2 border-transparent hover:border-orange-300"
+                className="card text-center"
               >
-                <motion.div 
-                  className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center text-white text-4xl shadow-xl"
-                  whileHover={{ scale: 1.15, rotate: 360 }}
-                  transition={{ duration: 0.5 }}
-                >
+                <div className="text-5xl text-primary-green mb-6 flex justify-center">
                   {benefit.icon}
-                </motion.div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{benefit.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+                </div>
+                <h3 className="text-xl font-bold text-primary-dark mb-4">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.description}</p>
               </motion.div>
             ))}
           </div>
@@ -485,7 +435,7 @@ export default function Partenaires() {
             <h2 className="section-title">Environnement Concurrentiel</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto mb-6"></div>
             <p className="section-subtitle">
-              MAMAHOLDING S.A évolue dans un environnement concurrentiel dynamique
+              MAMAHOLDING évolue dans un environnement concurrentiel dynamique
             </p>
           </motion.div>
 
@@ -518,7 +468,7 @@ export default function Partenaires() {
 
               <div className="mt-8 bg-gradient-to-r from-primary-green/10 to-green-50 rounded-xl p-6 border-l-4 border-primary-green">
                 <p className="text-gray-700 leading-relaxed">
-                  <strong className="text-primary-dark">Notre avantage compétitif :</strong> MAMAHOLDING S.A se distingue par son approche intégrée, 
+                  <strong className="text-primary-dark">Notre avantage compétitif :</strong> MAMAHOLDING se distingue par son approche intégrée, 
                   sa diversification stratégique et son engagement envers l'excellence opérationnelle, 
                   nous permettant de maintenir une position de leader sur le marché camerounais.
                 </p>
@@ -549,22 +499,17 @@ export default function Partenaires() {
             {criteria.map((criterion, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -10, scale: 1.05 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 text-center cursor-pointer border-2 border-transparent hover:border-red-300"
+                className="card text-center"
               >
-                <motion.div 
-                  className="text-6xl mb-6 flex justify-center bg-gradient-to-br from-red-500 to-orange-600 bg-clip-text text-transparent"
-                  whileHover={{ scale: 1.2, rotate: 360 }}
-                  transition={{ duration: 0.5 }}
-                >
+                <div className="text-5xl text-primary-red mb-6 flex justify-center">
                   {criterion.icon}
-                </motion.div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{criterion.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{criterion.description}</p>
+                </div>
+                <h3 className="text-xl font-bold text-primary-dark mb-4">{criterion.title}</h3>
+                <p className="text-gray-600">{criterion.description}</p>
               </motion.div>
             ))}
           </div>

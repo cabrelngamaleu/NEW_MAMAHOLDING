@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { FaUserTie, FaUsers, FaChartLine } from 'react-icons/fa'
+import OrganigrammeSwitcher from '../components/OrganigrammeSwitcher'
 
 export default function Gouvernance() {
   const leaders = [
@@ -46,20 +47,116 @@ export default function Gouvernance() {
   ]
 
   return (
-    <div className="min-h-screen bg-white mt-20 md:mt-24">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-dark to-gray-900 text-white py-20">
-        <div className="container-custom">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Design Ultra-Dynamique */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 text-white py-20 md:py-32 overflow-hidden">
+        {/* Particules flottantes animées */}
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(25)].map((_, i) => (
+            <motion.div
+              key={`particle-${i}`}
+              className="absolute w-2 h-2 bg-white rounded-full"
+              style={{
+                left: `${(i * 7) % 100}%`,
+                top: `${(i * 11) % 100}%`,
+                opacity: 0.3 + (i % 3) * 0.1
+              }}
+              animate={{
+                y: [0, -50, 0],
+                x: [0, (i % 2 === 0 ? 40 : -40), 0],
+                scale: [1, 1.5, 1],
+                opacity: [0.3, 0.7, 0.3]
+              }}
+              transition={{
+                duration: 4 + (i % 3),
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 0.2
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Halos géants animés */}
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-10"
+          animate={{
+            scale: [1, 1.3, 1],
+            x: [0, 100, 0],
+            y: [0, -50, 0],
+            rotate: [0, 180, 360]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-500 rounded-full blur-3xl opacity-10"
+          animate={{
+            scale: [1, 1.4, 1],
+            x: [0, -80, 0],
+            y: [0, 60, 0],
+            rotate: [360, 180, 0]
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+
+        {/* Lignes lumineuses traversantes */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={`line-${i}`}
+            className="absolute h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+            style={{
+              top: `${15 + i * 15}%`,
+              width: '100%'
+            }}
+            animate={{
+              x: ['-100%', '100%'],
+              opacity: [0, 0.4, 0]
+            }}
+            transition={{
+              duration: 8 + i,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 1.5
+            }}
+          />
+        ))}
+
+        <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Gouvernance</h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">
+            <motion.h1 
+              className="text-5xl md:text-6xl font-extrabold mb-6"
+              animate={{
+                textShadow: [
+                  '0 0 20px rgba(255,255,255,0.3)',
+                  '0 0 40px rgba(255,255,255,0.5)',
+                  '0 0 20px rgba(255,255,255,0.3)'
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              Gouvernance
+            </motion.h1>
+            <motion.p 
+              className="text-xl md:text-2xl max-w-3xl mx-auto opacity-90"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 0.9, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
               Une structure organisationnelle solide au service de notre ambition
-            </p>
+            </motion.p>
           </motion.div>
         </div>
       </section>
@@ -116,7 +213,7 @@ export default function Gouvernance() {
         </div>
       </section>
 
-      {/* Direction */}
+      {/* Organigramme */}
       <section className="py-20">
         <div className="container-custom">
           <motion.div
@@ -126,36 +223,14 @@ export default function Gouvernance() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="section-title">Notre Direction</h2>
+            <h2 className="section-title">Organigramme de Direction</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary-red to-primary-green mx-auto mb-6"></div>
             <p className="section-subtitle">
-              Une équipe dirigeante expérimentée au service de notre croissance
+              Structure hiérarchique et organisation de MAMAHOLDING
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {leaders.map((leader, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="card"
-              >
-                <div className="flex items-start gap-6">
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary-red to-red-700 rounded-full flex items-center justify-center text-white text-3xl flex-shrink-0">
-                    <FaUserTie />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-primary-dark mb-2">{leader.name}</h3>
-                    <div className="text-primary-red font-semibold mb-3">{leader.role}</div>
-                    <p className="text-gray-600 leading-relaxed">{leader.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <OrganigrammeSwitcher />
         </div>
       </section>
 

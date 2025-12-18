@@ -5,7 +5,7 @@ import { FaShieldAlt } from 'react-icons/fa'
 
 export default function PolitiqueConfidentialite() {
   return (
-    <div className="min-h-screen bg-white mt-20 md:mt-24">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary-red to-red-700 text-white py-20">
         <div className="container-custom">
@@ -123,7 +123,7 @@ export default function PolitiqueConfidentialite() {
                   <li><strong>Droit à la portabilité :</strong> recevoir vos données dans un format structuré</li>
                 </ul>
                 <p className="text-gray-700 leading-relaxed mt-4">
-                  Pour exercer ces droits, contactez-nous à : <strong>contact@mamaholding.net</strong>
+                  Pour exercer ces droits, contactez-nous à : <strong>mapprologistique@mamaholding.net</strong>
                 </p>
               </div>
 
@@ -154,9 +154,9 @@ export default function PolitiqueConfidentialite() {
                 </p>
                 <div className="bg-gray-50 p-6 rounded-lg mt-4">
                   <p className="text-gray-700"><strong>MAMAHOLDING S.A</strong></p>
-                  <p className="text-gray-700">Douala, Cameroun</p>
-                  <p className="text-gray-700">Email : contact@mamaholding.net</p>
-                  <p className="text-gray-700">Tél : +237 656 917 202 / +237 233 42 42 42</p>
+                  <p className="text-gray-700">Yaoundé -Etoudi, Cameroun</p>
+                  <p className="text-gray-700">Email : mapprologistique@mamaholding.net</p>
+                  <p className="text-gray-700">Tél : +237 690 201 978 / +237 690 202 555</p>
                 </div>
               </div>
             </div>

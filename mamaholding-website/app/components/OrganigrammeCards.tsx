@@ -8,118 +8,58 @@ export default function OrganigrammeCards() {
   const [selectedNode, setSelectedNode] = useState<any>(null)
 
   const nodes = [
-    {
-      id: 'ag',
-      title: 'ASSEMBLÉE GÉNÉRALE',
-      color: 'purple',
-      level: 'Direction Générale',
-      description: 'Organe suprême de décision de l\'entreprise',
-      reports: 1
-    },
-    {
-      id: 'ca',
-      title: 'CONSEIL D\'ADMINISTRATION',
-      color: 'green',
-      level: 'Direction Générale',
-      description: 'Organe de gouvernance et de contrôle stratégique',
-      reports: 1
-    },
-    {
-      id: 'adg',
-      title: 'ADMINISTRATEUR DIRECTEUR GÉNÉRAL',
-      color: 'gray',
-      level: 'Direction Exécutive',
-      description: 'Direction opérationnelle et stratégique du groupe',
-      reports: 5
-    },
-    {
-      id: 'juridique',
-      title: 'CHEF SERVICE JURIDIQUE',
-      color: 'teal',
-      level: 'Service',
-      description: 'Gestion des affaires juridiques et conformité',
-      reports: 0
-    },
-    {
-      id: 'attache',
-      title: 'ATTACHÉ DE DIRECTION',
-      color: 'teal',
-      level: 'Service',
-      description: 'Support à la direction générale',
-      reports: 1
-    },
-    {
-      id: 'commercial',
-      title: 'CHEF DE DÉPARTEMENT COMMERCIAL',
-      color: 'orange',
-      level: 'Département',
-      description: 'Pilotage de l\'activité commerciale et marketing',
-      reports: 6
-    },
-    {
-      id: 'informatique',
-      title: 'CHEF SERVICE INFORMATIQUE',
-      color: 'blue',
-      level: 'Service',
-      description: 'Gestion des systèmes d\'information',
-      reports: 0
-    },
-    {
-      id: 'comptabilite',
-      title: 'CHEF SERVICE DE COMPTABILITÉ',
-      color: 'blue',
-      level: 'Service',
-      description: 'Gestion comptable et financière',
-      reports: 0
-    },
-    {
-      id: 'dga',
-      title: 'DIRECTEUR GÉNÉRAL ADJOINT',
-      color: 'teal',
-      level: 'Direction Exécutive',
-      description: 'Assistance à la direction générale',
-      reports: 0
-    },
-    {
-      id: 'compta-fisc',
-      title: 'CHEF DE DÉPARTEMENT COMPTABILITÉ ET FISCALITÉ',
-      color: 'orange',
-      level: 'Département',
-      description: 'Gestion comptable, fiscale et financière',
-      reports: 2
-    },
-    {
-      id: 'appro',
-      title: 'CHEF DE DÉPARTEMENT APPROVISIONNEMENT',
-      color: 'orange',
-      level: 'Département',
-      description: 'Gestion des achats et approvisionnements',
-      reports: 6
-    },
-    {
-      id: 'financier',
-      title: 'CHEF DE DÉPARTEMENT FINANCIER',
-      color: 'orange',
-      level: 'Département',
-      description: 'Gestion financière et trésorerie',
-      reports: 4
-    },
-    {
-      id: 'rh',
-      title: 'CHEF DE DÉPARTEMENT RH ET ADMINISTRATION',
-      color: 'orange',
-      level: 'Département',
-      description: 'Gestion des ressources humaines',
-      reports: 5
-    },
-    {
-      id: 'logistique',
-      title: 'CHEF DE DÉPARTEMENT LOGISTIQUE',
-      color: 'orange',
-      level: 'Département',
-      description: 'Gestion de la logistique et transport',
-      reports: 2
-    }
+    // Niveau 1 - Direction Stratégique
+    { id: 'ag', title: 'ASSEMBLÉE GÉNÉRALE', color: 'purple', level: 'Gouvernance', description: 'Organe suprême de décision', reports: 1 },
+    { id: 'ca', title: 'CONSEIL D\'ADMINISTRATION', color: 'green', level: 'Gouvernance', description: 'Organe de gouvernance stratégique', reports: 1 },
+    { id: 'adg', title: 'ADMINISTRATEUR DIRECTEUR GÉNÉRAL', color: 'gray', level: 'Direction Générale', description: 'Direction opérationnelle du groupe', reports: 11 },
+    
+    // Niveau 2 - Services Support
+    { id: 'juridique', title: 'CHEF SERVICE JURIDIQUE', color: 'teal', level: 'Service Support', description: 'Affaires juridiques et conformité', reports: 0 },
+    { id: 'attache', title: 'ATTACHÉ DE DIRECTION', color: 'teal', level: 'Service Support', description: 'Support direction générale', reports: 0 },
+    { id: 'informatique', title: 'CHEF SERVICE INFORMATIQUE', color: 'blue', level: 'Service Support', description: 'Systèmes d\'information', reports: 0 },
+    { id: 'comptabilite', title: 'CHEF SERVICE DE COMPTABILITÉ', color: 'blue', level: 'Service Support', description: 'Comptabilité générale', reports: 0 },
+    { id: 'approvisionnement', title: 'CHEF SERVICE APPROVISIONNEMENT', color: 'teal', level: 'Service Support', description: 'Gestion des approvisionnements', reports: 0 },
+    { id: 'dga', title: 'DIRECTEUR GÉNÉRAL ADJOINT', color: 'teal', level: 'Direction Adjointe', description: 'Assistance direction générale', reports: 0 },
+    { id: 'audit', title: 'CHEF SERVICE DE L\'AUDIT INTERNE', color: 'blue', level: 'Service Support', description: 'Audit et contrôle interne', reports: 0 },
+    { id: 'securite', title: 'CHEF SERVICE SÉCURITÉ', color: 'teal', level: 'Service Support', description: 'Sécurité et sûreté', reports: 0 },
+    
+    // Niveau 3 - Départements
+    { id: 'commercial', title: 'CHEF DE DÉPARTEMENT COMMERCIAL', color: 'orange', level: 'Département', description: 'Direction commerciale', reports: 0 },
+    { id: 'dept-compta', title: 'CHEF DE DÉPARTEMENT COMPTABILITÉ ET FISCALITÉ', color: 'orange', level: 'Département', description: 'Comptabilité et fiscalité', reports: 2 },
+    { id: 'dept-appro', title: 'CHEF DE DÉPARTEMENT APPROVISIONNEMENT', color: 'orange', level: 'Département', description: 'Achats et approvisionnements', reports: 6 },
+    { id: 'dept-financier', title: 'CHEF DE DÉPARTEMENT FINANCIER', color: 'orange', level: 'Département', description: 'Gestion financière', reports: 4 },
+    { id: 'dept-rh', title: 'CHEF DE DÉPARTEMENT RH ET ADMINISTRATION', color: 'orange', level: 'Département', description: 'Ressources humaines', reports: 5 },
+    { id: 'dept-logistique', title: 'CHEF DE DÉPARTEMENT LOGISTIQUE', color: 'orange', level: 'Département', description: 'Logistique et transport', reports: 2 },
+    { id: 'dept-marketing', title: 'CHEF DE DÉPARTEMENT MARKETING', color: 'orange', level: 'Département', description: 'Marketing et communication', reports: 0 },
+    
+    // Services opérationnels - Comptabilité
+    { id: 'srv-ventes', title: 'CHEF DE SERVICE VENTES', color: 'teal', level: 'Service Opérationnel', description: 'Gestion des ventes', reports: 0 },
+    { id: 'srv-marketing', title: 'CHEF DE SERVICE MARKETING', color: 'teal', level: 'Service Opérationnel', description: 'Opérations marketing', reports: 0 },
+    
+    // Services opérationnels - Approvisionnement
+    { id: 'srv-logistique-transport', title: 'CHEF DE SERVICE LOGISTIQUE ET TRANSPORT', color: 'teal', level: 'Service Opérationnel', description: 'Logistique et transport', reports: 0 },
+    { id: 'srv-exploitation', title: 'CHEF SERVICE EXPLOITATION', color: 'teal', level: 'Service Opérationnel', description: 'Exploitation', reports: 0 },
+    { id: 'srv-maintenance', title: 'CHEF SERVICE MAINTENANCE', color: 'teal', level: 'Service Opérationnel', description: 'Maintenance', reports: 0 },
+    { id: 'srv-achats', title: 'CHEF SERVICE ACHATS', color: 'teal', level: 'Service Opérationnel', description: 'Gestion des achats', reports: 0 },
+    { id: 'srv-stock', title: 'CHEF SERVICE STOCK', color: 'teal', level: 'Service Opérationnel', description: 'Gestion des stocks', reports: 0 },
+    { id: 'srv-planif', title: 'CHEF DE SERVICE DES PLANIFICATIONS DES APPROVISIONNEMENTS', color: 'teal', level: 'Service Opérationnel', description: 'Planification approvisionnements', reports: 0 },
+    
+    // Services opérationnels - Financier
+    { id: 'srv-financier', title: 'CHEF SERVICE FINANCIER', color: 'teal', level: 'Service Opérationnel', description: 'Gestion financière', reports: 0 },
+    { id: 'srv-tresorerie', title: 'CHEF SERVICE TRÉSORERIE', color: 'teal', level: 'Service Opérationnel', description: 'Trésorerie', reports: 0 },
+    { id: 'srv-paie', title: 'SERVICE PAIE & IMPÔTS', color: 'teal', level: 'Service Opérationnel', description: 'Paie et impôts', reports: 0 },
+    { id: 'srv-comptable', title: 'CHEF SERVICE COMPTABLE', color: 'teal', level: 'Service Opérationnel', description: 'Comptabilité', reports: 0 },
+    
+    // Services opérationnels - RH
+    { id: 'srv-clientele', title: 'CHEF DE SERVICE CLIENTÈLE & DISTRIBUTION', color: 'teal', level: 'Service Opérationnel', description: 'Clientèle et distribution', reports: 0 },
+    { id: 'srv-exploitation-rh', title: 'CHEF SERVICE EXPLOITATION', color: 'teal', level: 'Service Opérationnel', description: 'Exploitation RH', reports: 0 },
+    { id: 'srv-moyens-gen', title: 'CHEF SERVICE DES MOYENS GÉNÉRAUX', color: 'teal', level: 'Service Opérationnel', description: 'Moyens généraux', reports: 0 },
+    { id: 'srv-rh', title: 'CHEF SERVICE RESSOURCES HUMAINES', color: 'teal', level: 'Service Opérationnel', description: 'Ressources humaines', reports: 0 },
+    { id: 'srv-controle', title: 'CHEF SERVICE CONTRÔLE GESTION', color: 'teal', level: 'Service Opérationnel', description: 'Contrôle de gestion', reports: 0 },
+    
+    // Services opérationnels - Logistique
+    { id: 'srv-exploitation-log', title: 'CHEF SERVICE EXPLOITATION', color: 'teal', level: 'Service Opérationnel', description: 'Exploitation logistique', reports: 0 },
+    { id: 'srv-maintenance-veh', title: 'CHEF SERVICE MAINTENANCE VÉHICULES', color: 'teal', level: 'Service Opérationnel', description: 'Maintenance véhicules', reports: 0 }
   ]
 
   const colorClasses: Record<string, string> = {

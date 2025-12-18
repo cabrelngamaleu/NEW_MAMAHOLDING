@@ -191,8 +191,8 @@ export default function OrganigrammeExact() {
           </div>
         </div>
 
-        {/* Niveau 5 - 6 Départements sous Commercial */}
-        <div className="grid grid-cols-6 gap-2 mb-4 px-[10%]">
+        {/* Niveau 5 - 5 Départements sous Commercial */}
+        <div className="grid grid-cols-5 gap-3 mb-4 px-[10%]">
           <div className="flex flex-col items-center">
             <Card title="CHEF DE DÉPARTEMENT" subtitle="COMPTABILITÉ ET FISCALITÉ" color="orange" delay={0.85} size="small" />
             <div className="w-0.5 h-6 bg-gray-400"></div>
@@ -218,15 +218,10 @@ export default function OrganigrammeExact() {
             <div className="w-0.5 h-6 bg-gray-400"></div>
             <div className="w-0 h-0 border-l-[3px] border-r-[3px] border-t-[6px] border-l-transparent border-r-transparent border-t-gray-400"></div>
           </div>
-          <div className="flex flex-col items-center">
-            <Card title="CHEF DE" subtitle="DÉPARTEMENT MARKETING" color="orange" delay={1.1} size="small" />
-            <div className="w-0.5 h-6 bg-gray-400"></div>
-            <div className="w-0 h-0 border-l-[3px] border-r-[3px] border-t-[6px] border-l-transparent border-r-transparent border-t-gray-400"></div>
-          </div>
         </div>
 
         {/* Niveau 6 - Services sous chaque département */}
-        <div className="grid grid-cols-6 gap-2 px-[10%]">
+        <div className="grid grid-cols-5 gap-3 px-[10%]">
           {/* Colonne 1 - Comptabilité */}
           <div className="space-y-1.5">
             {['CHEF DE SERVICE VENTES', 'CHEF DE SERVICE MARKETING'].map((s, i) => (
@@ -291,11 +286,6 @@ export default function OrganigrammeExact() {
                 <div className="text-[7px] font-semibold leading-tight">{s}</div>
               </div>
             ))}
-          </div>
-
-          {/* Colonne 6 - Marketing */}
-          <div className="space-y-1.5">
-            {/* Services marketing si nécessaire */}
           </div>
         </div>
 

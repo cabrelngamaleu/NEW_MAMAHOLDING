@@ -6,70 +6,142 @@ import { FaAward, FaHandshake, FaChartLine, FaUsers, FaShieldAlt, FaLightbulb, F
 export default function NosValeurs() {
   const values = [
     {
-      icon: <FaAward />,
-      title: 'Excellence',
-      description: 'Nous visons l\'excellence dans tous nos services et produits. Chaque action, chaque décision est guidée par la recherche de la perfection et de la qualité supérieure.',
+      icon: <FaHeart />,
+      title: 'Engagement',
+      description: 'Nous nous engageons pleinement envers nos clients, partenaires et employés. Notre détermination à tenir nos promesses et à aller au-delà des attentes est au cœur de notre réussite et de notre crédibilité.',
       color: 'from-red-500 to-red-700',
+    },
+    {
+      icon: <FaUsers />,
+      title: 'Esprit d\'équipe',
+      description: 'La collaboration et le travail d\'équipe sont essentiels à notre succès. Nous valorisons chaque membre de notre organisation et cultivons un environnement de synergie où chacun contribue à l\'excellence collective.',
+      color: 'from-green-500 to-green-700',
     },
     {
       icon: <FaHandshake />,
       title: 'Intégrité',
-      description: 'La transparence et l\'honnêteté sont au cœur de nos relations. Nous agissons avec éthique et droiture dans toutes nos interactions professionnelles.',
-      color: 'from-green-500 to-green-700',
-    },
-    {
-      icon: <FaChartLine />,
-      title: 'Innovation',
-      description: 'Nous innovons constamment pour mieux servir nos clients. L\'amélioration continue et l\'adaptation aux nouvelles technologies sont notre priorité.',
+      description: 'La transparence et l\'honnêteté sont au cœur de nos relations. Nous agissons avec probité, éthique et droiture dans toutes nos interactions professionnelles, établissant ainsi une confiance durable.',
       color: 'from-blue-500 to-blue-700',
     },
     {
-      icon: <FaUsers />,
-      title: 'Esprit d\'Équipe',
-      description: 'La collaboration et le travail d\'équipe sont essentiels à notre succès. Nous valorisons chaque membre de notre organisation.',
-      color: 'from-purple-500 to-purple-700',
-    },
-    {
-      icon: <FaShieldAlt />,
-      title: 'Responsabilité',
-      description: 'Nous assumons pleinement nos responsabilités envers nos clients, partenaires, employés et la société.',
-      color: 'from-orange-500 to-orange-700',
-    },
-    {
-      icon: <FaLightbulb />,
-      title: 'Créativité',
-      description: 'Nous encourageons la pensée créative et les solutions innovantes pour relever les défis du marché.',
-      color: 'from-yellow-500 to-yellow-700',
-    },
-    {
-      icon: <FaHeart />,
-      title: 'Engagement Client',
-      description: 'La satisfaction de nos clients est notre raison d\'être. Nous nous engageons à dépasser leurs attentes.',
-      color: 'from-pink-500 to-pink-700',
-    },
-    {
       icon: <FaGlobe />,
-      title: 'Durabilité',
-      description: 'Nous nous engageons dans des pratiques commerciales durables pour un avenir meilleur.',
+      title: 'Respect de l\'environnement',
+      description: 'Nous nous engageons dans des pratiques durables et responsables. La protection de notre environnement guide nos décisions et nos actions quotidiennes pour assurer un avenir meilleur aux générations futures.',
       color: 'from-teal-500 to-teal-700',
     },
   ]
 
   return (
-    <div className="min-h-screen bg-white mt-20 md:mt-24">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-green to-green-700 text-white py-20">
-        <div className="container-custom">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Design Ultra-Dynamique */}
+      <section className="relative bg-gradient-to-br from-green-600 via-emerald-500 to-teal-600 text-white py-20 md:py-32 overflow-hidden">
+        {/* Particules flottantes animées */}
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(25)].map((_, i) => (
+            <motion.div
+              key={`particle-${i}`}
+              className="absolute w-2 h-2 bg-white rounded-full"
+              style={{
+                left: `${(i * 7) % 100}%`,
+                top: `${(i * 11) % 100}%`,
+                opacity: 0.3 + (i % 3) * 0.1
+              }}
+              animate={{
+                y: [0, -50, 0],
+                x: [0, (i % 2 === 0 ? 40 : -40), 0],
+                scale: [1, 1.5, 1],
+                opacity: [0.3, 0.7, 0.3]
+              }}
+              transition={{
+                duration: 4 + (i % 3),
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 0.2
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Halos géants animés */}
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl opacity-10"
+          animate={{
+            scale: [1, 1.3, 1],
+            x: [0, 100, 0],
+            y: [0, -50, 0],
+            rotate: [0, 180, 360]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-300 rounded-full blur-3xl opacity-10"
+          animate={{
+            scale: [1, 1.4, 1],
+            x: [0, -80, 0],
+            y: [0, 60, 0],
+            rotate: [360, 180, 0]
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+
+        {/* Lignes lumineuses traversantes */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={`line-${i}`}
+            className="absolute h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+            style={{
+              top: `${15 + i * 15}%`,
+              width: '100%'
+            }}
+            animate={{
+              x: ['-100%', '100%'],
+              opacity: [0, 0.4, 0]
+            }}
+            transition={{
+              duration: 8 + i,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 1.5
+            }}
+          />
+        ))}
+
+        <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Nos Valeurs</h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">
+            <motion.h1 
+              className="text-5xl md:text-6xl font-extrabold mb-6"
+              animate={{
+                textShadow: [
+                  '0 0 20px rgba(255,255,255,0.3)',
+                  '0 0 40px rgba(255,255,255,0.5)',
+                  '0 0 20px rgba(255,255,255,0.3)'
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              Nos Valeurs
+            </motion.h1>
+            <motion.p 
+              className="text-xl md:text-2xl max-w-3xl mx-auto opacity-90"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 0.9, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
               Les principes fondamentaux qui guident nos actions au quotidien
-            </p>
+            </motion.p>
           </motion.div>
         </div>
       </section>

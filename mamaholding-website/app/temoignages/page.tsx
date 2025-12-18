@@ -129,88 +129,87 @@ export default function Temoignages() {
     },
   ]
 
-  const entityColors: Record<Entity, { gradient: string, light: string, border: string }> = {
-    CAC: { gradient: 'from-red-500 to-red-700', light: 'from-red-50 to-red-100', border: 'border-red-500' },
-    TRINCO: { gradient: 'from-blue-500 to-blue-700', light: 'from-blue-50 to-blue-100', border: 'border-blue-500' },
-    ECOFOOD: { gradient: 'from-green-500 to-red-600', light: 'from-green-50 to-red-50', border: 'border-green-500' },
+  const entityColors: Record<Entity, string> = {
+    CAC: 'from-red-500 to-red-700',
+    TRINCO: 'from-green-500 to-green-700',
+    ECOFOOD: 'from-blue-500 to-blue-700',
   }
 
   return (
-    <div className="min-h-screen bg-white mt-20 md:mt-24">
-      {/* Hero Section - Design Ultra Interactif */}
-      <section className="relative bg-gradient-to-br from-purple-900 via-pink-800 to-red-900 text-white py-32 overflow-hidden">
-        {/* Fond animé avec particules flottantes */}
-        <div className="absolute inset-0">
-          {/* Cercles animés multiples */}
-          <motion.div 
-            className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-pink-400 to-red-500 rounded-full blur-3xl opacity-30"
-            animate={{ 
-              scale: [1, 1.3, 1],
-              x: [0, 50, 0],
-              y: [0, -30, 0]
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div 
-            className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full blur-3xl opacity-30"
-            animate={{ 
-              scale: [1, 1.4, 1],
-              x: [0, -40, 0],
-              y: [0, 40, 0]
-            }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div 
-            className="absolute top-1/2 left-1/2 w-64 h-64 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full blur-3xl opacity-20"
-            animate={{ 
-              scale: [1, 1.5, 1],
-              rotate: [0, 180, 360]
-            }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          />
-        </div>
-        
-        {/* Particules flottantes multiples */}
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Design Ultra-Dynamique */}
+      <section className="relative bg-gradient-to-br from-primary-red via-red-600 to-red-800 text-white py-32 overflow-hidden">
+        {/* Particules flottantes */}
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(20)].map((_, i) => (
+          {[...Array(25)].map((_, i) => (
             <motion.div
-              key={i}
+              key={`particle-${i}`}
               className="absolute w-2 h-2 bg-white rounded-full"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
+                left: `${(i * 7) % 100}%`,
+                top: `${(i * 11) % 100}%`,
+                opacity: 0.3 + (i % 3) * 0.1
               }}
               animate={{
-                y: [0, -30, 0],
-                x: [0, Math.random() * 20 - 10, 0],
-                opacity: [0.2, 0.8, 0.2],
-                scale: [1, 1.5, 1],
+                y: [0, -50, 0],
+                x: [0, (i % 2 === 0 ? 40 : -40), 0],
+                scale: [1, 1.8, 1],
+                opacity: [0.3, 0.9, 0.3]
               }}
               transition={{
-                duration: 3 + Math.random() * 4,
+                duration: 5 + i * 0.3,
                 repeat: Infinity,
-                delay: Math.random() * 2,
+                ease: "easeInOut",
+                delay: i * 0.15
               }}
             />
           ))}
         </div>
-        
-        {/* Grille futuriste animée */}
-        <motion.div 
-          className="absolute inset-0 opacity-10" 
-          style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,.15) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,.15) 2px, transparent 2px)',
-            backgroundSize: '60px 60px'
-          }}
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%']
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
+
+        {/* Halos animés */}
+        <div className="absolute inset-0 opacity-20">
+          <motion.div 
+            className="absolute top-20 left-10 w-96 h-96 bg-white rounded-full blur-3xl"
+            animate={{ 
+              scale: [1, 1.4, 1],
+              x: [0, 50, 0],
+              y: [0, -40, 0],
+              rotate: [0, 180, 360]
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute bottom-20 right-10 w-80 h-80 bg-white rounded-full blur-3xl"
+            animate={{ 
+              scale: [1, 1.5, 1],
+              x: [0, -40, 0],
+              y: [0, 50, 0],
+              rotate: [360, 180, 0]
+            }}
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
+
+        {/* Lignes animées */}
+        <div className="absolute inset-0 opacity-10">
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={`line-${i}`}
+              className="absolute h-px bg-white"
+              style={{ top: `${15 + i * 14}%`, width: '100%' }}
+              animate={{
+                x: ['-100%', '200%'],
+                opacity: [0, 0.6, 0]
+              }}
+              transition={{
+                duration: 7 + i,
+                repeat: Infinity,
+                ease: "linear",
+                delay: i * 0.6
+              }}
+            />
+          ))}
+        </div>
         
         <div className="container-custom relative z-10">
           <motion.div
@@ -223,41 +222,48 @@ export default function Temoignages() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              whileHover={{ scale: 1.05 }}
-              className="inline-block bg-white/20 backdrop-blur-md px-8 py-3 rounded-full mb-8 border-2 border-white/40 shadow-2xl"
+              className="inline-block bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-8 border border-white/30 shadow-xl"
+              whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.3)' }}
             >
-              <div className="flex items-center gap-3">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                >
-                  <FaStar className="text-yellow-300 text-xl" />
-                </motion.div>
-                <span className="text-white font-bold text-lg">Avis & Satisfaction</span>
-              </div>
+              <span className="text-white font-semibold text-lg">⭐ Avis & Satisfaction</span>
             </motion.div>
             
             <motion.h1 
               className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight"
-              animate={{ 
-                textShadow: [
-                  '0 0 20px rgba(255,255,255,0.5)',
-                  '0 0 40px rgba(255,255,255,0.8)',
-                  '0 0 20px rgba(255,255,255,0.5)'
-                ]
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
-              Témoignages Clients
+              <motion.span
+                animate={{
+                  textShadow: [
+                    '0 0 20px rgba(255,255,255,0.3)',
+                    '0 0 40px rgba(255,255,255,0.6)',
+                    '0 0 20px rgba(255,255,255,0.3)'
+                  ]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                Témoignages Clients
+              </motion.span>
             </motion.h1>
+            
             <motion.p 
               className="text-xl md:text-2xl opacity-95 leading-relaxed"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.95 }}
-              transition={{ delay: 0.4 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
             >
               Découvrez ce que nos clients pensent de nos services
             </motion.p>
+            
+            {/* Ligne décorative animée */}
+            <motion.div
+              className="w-32 h-1 bg-white rounded-full mx-auto mt-8"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1, delay: 0.7 }}
+            />
           </motion.div>
         </div>
       </section>
@@ -279,7 +285,7 @@ export default function Temoignages() {
               <div className="flex flex-col h-full">
                 <FaStar className="text-5xl text-yellow-400 mb-6" />
                 <p className="text-primary-dark text-lg leading-relaxed" style={{ color: '#1F2937' }}>
-                  Depuis plus de 20 ans, MAMAHOLDING S.A accompagne des centaines d'entreprises et de professionnels au Cameroun. 
+                  Depuis plus de 20 ans, MAMAHOLDING accompagne des centaines d'entreprises et de professionnels au Cameroun. 
                   Voici quelques témoignages de nos clients satisfaits qui nous font confiance au quotidien.
                 </p>
               </div>
@@ -295,86 +301,43 @@ export default function Temoignages() {
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ 
-                  y: -10, 
-                  scale: 1.02,
-                  boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)"
-                }}
-                className="relative bg-white rounded-2xl overflow-hidden group cursor-pointer border-2 border-transparent hover:border-purple-300 transition-all duration-300"
+                className="card relative overflow-hidden group hover:shadow-2xl transition-shadow duration-300"
               >
-                {/* Fond dégradé animé au hover */}
-                <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${entityColors[testimonial.entity as Entity].light} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                />
-                
-                <div className="relative p-8">
-                  {/* Badge Entité Animé */}
-                  <motion.div 
-                    className={`absolute -top-2 -right-2 bg-gradient-to-br ${entityColors[testimonial.entity as Entity].gradient} text-white px-5 py-2.5 text-sm font-bold rounded-bl-2xl rounded-tr-2xl shadow-lg`}
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                  >
-                    {testimonial.entity}
-                  </motion.div>
+                {/* Badge Entité */}
+                <div className={`absolute top-0 right-0 bg-gradient-to-br ${entityColors[testimonial.entity as Entity]} text-white px-4 py-2 text-sm font-bold rounded-bl-lg`}>
+                  {testimonial.entity}
+                </div>
 
-                  {/* Icône Quote avec animation */}
-                  <motion.div 
-                    className="text-5xl opacity-10 mb-4"
-                    style={{ color: testimonial.entity === 'CAC' ? '#DC2626' : testimonial.entity === 'TRINCO' ? '#2563EB' : '#16A34A' }}
-                    animate={{ 
-                      rotate: [0, 5, -5, 0],
-                      scale: [1, 1.1, 1]
-                    }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                  >
-                    <FaQuoteLeft />
-                  </motion.div>
+                {/* Icône Quote */}
+                <div className="text-4xl text-primary-red opacity-20 mb-4">
+                  <FaQuoteLeft />
+                </div>
 
-                  {/* Étoiles animées */}
-                  <div className="flex gap-1 mb-5">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, scale: 0 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.3 + i * 0.1 }}
-                        whileHover={{ scale: 1.3, rotate: 360 }}
-                      >
-                        <FaStar className="text-yellow-400 text-xl" />
-                      </motion.div>
-                    ))}
+                {/* Étoiles */}
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <FaStar key={i} className="text-yellow-400 text-xl" />
+                  ))}
+                </div>
+
+                {/* Témoignage */}
+                <p className="text-gray-700 leading-relaxed mb-6 italic">
+                  "{testimonial.text}"
+                </p>
+
+                {/* Profil Client */}
+                <div className="flex items-center gap-4 pt-4 border-t border-gray-200">
+                  <div className="text-5xl">{testimonial.image}</div>
+                  <div>
+                    <h4 className="font-bold text-primary-dark text-lg">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-600">{testimonial.role}</p>
+                    <p className="text-sm font-semibold text-primary-red">{testimonial.company}</p>
+                    <p className="text-xs text-gray-500">{testimonial.location}</p>
                   </div>
-
-                  {/* Témoignage avec meilleure typographie */}
-                  <p className="text-gray-700 leading-relaxed mb-6 italic text-base">
-                    <span className="text-2xl text-gray-400 font-serif">“</span>
-                    {testimonial.text}
-                    <span className="text-2xl text-gray-400 font-serif">”</span>
-                  </p>
-
-                  {/* Profil Client avec animation */}
-                  <motion.div 
-                    className="flex items-center gap-4 pt-5 border-t-2 border-gray-100 group-hover:border-purple-200 transition-colors"
-                    whileHover={{ x: 5 }}
-                  >
-                    <motion.div 
-                      className="text-5xl"
-                      whileHover={{ scale: 1.2, rotate: 10 }}
-                    >
-                      {testimonial.image}
-                    </motion.div>
-                    <div>
-                      <h4 className="font-bold text-gray-900 text-lg mb-1">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-600 mb-0.5">{testimonial.role}</p>
-                      <p className="text-sm font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{testimonial.company}</p>
-                      <p className="text-xs text-gray-500 flex items-center gap-1">
-                        <span>📍</span> {testimonial.location}
-                      </p>
-                    </div>
-                  </motion.div>
                 </div>
               </motion.div>
             ))}
@@ -444,7 +407,7 @@ export default function Temoignages() {
               Rejoignez nos clients satisfaits
             </h2>
             <p className="text-xl text-gray-700 mb-8">
-              Faites confiance à MAMAHOLDING S.A pour vos besoins en commerce de gros, solutions industrielles et produits alimentaires.
+              Faites confiance à MAMAHOLDING pour vos besoins en commerce de gros, solutions industrielles et produits alimentaires.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a href="/contact" className="btn-primary">

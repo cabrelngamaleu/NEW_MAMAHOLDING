@@ -7,45 +7,50 @@ export default function OrganigrammeTimeline() {
   const levels = [
     {
       level: 'Niveau 1',
-      title: 'Direction Générale',
+      title: 'Gouvernance Stratégique',
       nodes: [
         { title: 'ASSEMBLÉE GÉNÉRALE', color: 'purple' }
       ]
     },
     {
       level: 'Niveau 2',
-      title: 'Gouvernance',
+      title: 'Conseil',
       nodes: [
         { title: 'CONSEIL D\'ADMINISTRATION', color: 'green' }
       ]
     },
     {
       level: 'Niveau 3',
-      title: 'Direction Exécutive',
+      title: 'Direction Générale',
       nodes: [
         { title: 'ADMINISTRATEUR DIRECTEUR GÉNÉRAL', color: 'gray' }
       ]
     },
     {
       level: 'Niveau 4',
-      title: 'Services Centraux',
+      title: 'Services Support & Département Commercial',
       nodes: [
         { title: 'CHEF SERVICE JURIDIQUE', color: 'teal' },
         { title: 'ATTACHÉ DE DIRECTION', color: 'teal' },
         { title: 'CHEF DE DÉPARTEMENT COMMERCIAL', color: 'orange' },
         { title: 'CHEF SERVICE INFORMATIQUE', color: 'blue' },
-        { title: 'CHEF SERVICE DE COMPTABILITÉ', color: 'blue' }
+        { title: 'CHEF SERVICE DE COMPTABILITÉ', color: 'blue' },
+        { title: 'CHEF SERVICE APPROVISIONNEMENT', color: 'teal' },
+        { title: 'DIRECTEUR GÉNÉRAL ADJOINT', color: 'teal' },
+        { title: 'CHEF SERVICE DE L\'AUDIT INTERNE', color: 'blue' },
+        { title: 'CHEF SERVICE SÉCURITÉ', color: 'teal' }
       ]
     },
     {
       level: 'Niveau 5',
-      title: 'Départements',
+      title: 'Départements Opérationnels',
       nodes: [
         { title: 'CHEF DE DÉPARTEMENT COMPTABILITÉ ET FISCALITÉ', color: 'orange' },
         { title: 'CHEF DE DÉPARTEMENT APPROVISIONNEMENT', color: 'orange' },
         { title: 'CHEF DE DÉPARTEMENT FINANCIER', color: 'orange' },
         { title: 'CHEF DE DÉPARTEMENT RH ET ADMINISTRATION', color: 'orange' },
-        { title: 'CHEF DE DÉPARTEMENT LOGISTIQUE', color: 'orange' }
+        { title: 'CHEF DE DÉPARTEMENT LOGISTIQUE', color: 'orange' },
+        { title: 'CHEF DE DÉPARTEMENT MARKETING', color: 'orange' }
       ]
     },
     {
@@ -54,14 +59,21 @@ export default function OrganigrammeTimeline() {
       nodes: [
         { title: 'CHEF DE SERVICE VENTES', color: 'teal' },
         { title: 'CHEF DE SERVICE MARKETING', color: 'teal' },
-        { title: 'CHEF SERVICE LOGISTIQUE ET TRANSPORT', color: 'teal' },
+        { title: 'CHEF DE SERVICE LOGISTIQUE ET TRANSPORT', color: 'teal' },
         { title: 'CHEF SERVICE EXPLOITATION', color: 'teal' },
         { title: 'CHEF SERVICE MAINTENANCE', color: 'teal' },
         { title: 'CHEF SERVICE ACHATS', color: 'teal' },
+        { title: 'CHEF SERVICE STOCK', color: 'teal' },
+        { title: 'CHEF DE SERVICE DES PLANIFICATIONS DES APPROVISIONNEMENTS', color: 'teal' },
         { title: 'CHEF SERVICE FINANCIER', color: 'teal' },
         { title: 'CHEF SERVICE TRÉSORERIE', color: 'teal' },
+        { title: 'SERVICE PAIE & IMPÔTS', color: 'teal' },
+        { title: 'CHEF SERVICE COMPTABLE', color: 'teal' },
+        { title: 'CHEF DE SERVICE CLIENTÈLE & DISTRIBUTION', color: 'teal' },
+        { title: 'CHEF SERVICE DES MOYENS GÉNÉRAUX', color: 'teal' },
         { title: 'CHEF SERVICE RESSOURCES HUMAINES', color: 'teal' },
-        { title: 'CHEF SERVICE CONTRÔLE GESTION', color: 'teal' }
+        { title: 'CHEF SERVICE CONTRÔLE GESTION', color: 'teal' },
+        { title: 'CHEF SERVICE MAINTENANCE VÉHICULES', color: 'teal' }
       ]
     }
   ]

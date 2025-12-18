@@ -98,6 +98,21 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/partenaires" className="text-gray-300 hover:text-primary-red transition-colors">
+                  Partenaires
+                </Link>
+              </li>
+              <li>
+                <Link href="/temoignages" className="text-gray-300 hover:text-primary-red transition-colors">
+                  Témoignages
+                </Link>
+              </li>
+              <li>
+                <Link href="/carrieres" className="text-gray-300 hover:text-primary-red transition-colors">
+                  Carrières
+                </Link>
+              </li>
+              <li>
                 <Link href="/espace-presse" className="text-gray-300 hover:text-primary-red transition-colors">
                   Espace Presse
                 </Link>
@@ -133,15 +148,15 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <FaMapMarkerAlt className="text-primary-red mt-1 flex-shrink-0" />
-                <span className="text-gray-300">Yaoundé - Etoudi, Cameroun</span>
+                <span className="text-gray-300">Yaoundé -Etoudi, Cameroun</span>
               </li>
               <li className="flex items-start space-x-3">
                 <FaPhone className="text-primary-red mt-1 flex-shrink-0" />
-                <span className="text-gray-300">+237 656 917 202</span>
+                <span className="text-gray-300">+237 690 201 978 / +237 690 202 555</span>
               </li>
               <li className="flex items-start space-x-3">
                 <FaEnvelope className="text-primary-red mt-1 flex-shrink-0" />
-                <span className="text-gray-300">contact@mamaholding.net</span>
+                <span className="text-gray-300">mapprologistique@mamaholding.net</span>
               </li>
             </ul>
             <div className="mt-6">

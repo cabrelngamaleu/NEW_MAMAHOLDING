@@ -5,7 +5,7 @@ import { FaGavel } from 'react-icons/fa'
 
 export default function MentionsLegales() {
   return (
-    <div className="min-h-screen bg-white mt-20 md:mt-24">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-700 to-gray-900 text-white py-20">
         <div className="container-custom">
@@ -46,10 +46,10 @@ export default function MentionsLegales() {
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <p className="text-gray-700 mb-2"><strong>Raison sociale :</strong> MAMAHOLDING S.A</p>
                   <p className="text-gray-700 mb-2"><strong>Forme juridique :</strong> Société Anonyme</p>
-                  <p className="text-gray-700 mb-2"><strong>Siège social :</strong> Douala, Cameroun</p>
+                  <p className="text-gray-700 mb-2"><strong>Siège social :</strong> Yaoundé -Etoudi, Cameroun</p>
                   <p className="text-gray-700 mb-2"><strong>Année de création :</strong> 2004</p>
-                  <p className="text-gray-700 mb-2"><strong>Email :</strong> contact@mamaholding.net</p>
-                  <p className="text-gray-700 mb-2"><strong>Téléphone :</strong> +237 656 917 202 / +237 233 42 42 42</p>
+                  <p className="text-gray-700 mb-2"><strong>Email :</strong> mapprologistique@mamaholding.net</p>
+                  <p className="text-gray-700 mb-2"><strong>Téléphone :</strong> +237 690 201 978 / +237 690 202 555</p>
                   <p className="text-gray-700"><strong>Directeur de la publication :</strong> L'Administrateur Directeur Général</p>
                 </div>
               </div>
@@ -158,9 +158,9 @@ export default function MentionsLegales() {
                 </p>
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <p className="text-gray-700"><strong>MAMAHOLDING S.A</strong></p>
-                  <p className="text-gray-700">Douala, Cameroun</p>
-                  <p className="text-gray-700">Email : contact@mamaholding.net</p>
-                  <p className="text-gray-700">Tél : +237 656 917 202 / +237 233 42 42 42</p>
+                  <p className="text-gray-700">Yaoundé -Etoudi, Cameroun</p>
+                  <p className="text-gray-700">Email : mapprologistique@mamaholding.net</p>
+                  <p className="text-gray-700">Tél : +237 690 201 978 / +237 690 202 555</p>
                   <p className="text-gray-700 mt-4">
                     <a href="/contact" className="text-primary-red hover:underline font-semibold">
                       Formulaire de contact →
